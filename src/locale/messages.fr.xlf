@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="0a362e07a6f7a26aeafbb4bf2e75dbc79b1ff81b" datatype="html">
+        <source>Domestic and International Flights</source>
+        <target>Vols nationaux et internationaux</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="47a3038b6caecac8d9546c521f8d429211631a59" datatype="html">
+        <source>Search your flights here!</source>
+        <target>Recherchez vos vols ici!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1885c5ca85a09586b89768af10033c24166c122b" datatype="html">
+        <source>Departure Airport Code</source>
+        <target>Code de l'aéroport de départ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3168b8aa7a940b456db718325de8fd1a3c6973f1" datatype="html">
+        <source>Arrival Airport Code</source>
+        <target>Code de l'aéroport d'arrivée</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2229854b307f4514c020ad074ef3c922241debb3" datatype="html">
+        <source>Departure Date</source>
+        <target>Date de départ</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f939ed05ea0a1480534235382e3b0868d365708b" datatype="html">
+        <source>Arrival Date</source>
+        <target>Date d'arrivée</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7e892ba15f2c6c17e83510e273b3e10fc32ea016" datatype="html">
+        <source>Search</source>
+        <target>Chercher</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d9ddf0277621ad083f4923b04d5d0ba8ad2bd29b" datatype="html">
+        <source><x id="START_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;em&gt;"/>Loading...<x id="CLOSE_EMPHASISED_TEXT" ctype="x-em" equiv-text="&lt;/em&gt;"/></source>
+        <target></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d8264b14e1efccf08843a9225a778ad0d1f00dd8" datatype="html">
+        <source>Airline</source>
+        <target>Compagnie aérienne</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1de6ed6b54101044c1c42112ca33a72c05729d0e" datatype="html">
+        <source>Outbound flight duration</source>
+        <target>Durée du vol aller</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="767ad6befa52124bacf95e3f9cae95b4ba8bb5a6" datatype="html">
+        <source>Inbound flight duration</source>
+        <target>Durée du vol entrant</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="007856d6a7e454934e580dfdb1d21299dc2874c2" datatype="html">
+        <source>Total Amount</source>
+        <target>Montant total</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/search/search.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f9a288da30a30afa290447659c593be7f760d111" datatype="html">
+        <source>Vic Airlines</source>
+        <target>Vic Compagnies aériennes</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-menu/nav-menu.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="92eee6be6de0b11c924e3ab27db30257159c0a7c" datatype="html">
+        <source>Home</source>
+        <target>Accueil</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-menu/nav-menu.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f7462233f0db468fd8a0f3ae110d3b9a60f64c92" datatype="html">
+        <source>Search Flights</source>
+        <target>Recherche de vols</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/nav-menu/nav-menu.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

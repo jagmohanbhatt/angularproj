@@ -1,0 +1,70 @@
+<div class="jumbotron">
+       
+    <h1 class="display-4" i18n>Domestic and International Flights</h1>
+    <p class="lead" i18n>Search your flights here!</p>
+    <hr class="my-4">
+  
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="labelDepartureCode" i18n>Departure Airport Code</label>
+            <input type="text" class="form-control" required minlength="3" maxlength="3" [(ngModel)]="departureCode">
+                    
+        </div>
+        <div class="form-group col-md-3">
+            <label for="labelArrivalCode" i18n>Arrival Airport Code</label>
+            <input type="text" class="form-control"  required minlength="3"  [(ngModel)]="arrivalCode">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="labelDepartureDate" i18n>Departure Date</label>
+            
+            <mat-form-field>
+              <input matInput [matDatepicker]="ddate" placeholder="Choose a date" [(ngModel)]="departureDate">
+              <mat-datepicker-toggle matSuffix [for]="ddate"></mat-datepicker-toggle>
+              <mat-datepicker #ddate></mat-datepicker>
+            </mat-form-field>
+            
+        </div>
+            
+        <div class="form-group col-md-3">
+            <label for="labelArrivalDate" i18n>Arrival Date</label>
+            <mat-form-field>
+              <input matInput [matDatepicker]="adate" placeholder="Choose a date" [(ngModel)]="arrivalDate">
+              <mat-datepicker-toggle matSuffix [for]="adate"></mat-datepicker-toggle>
+              <mat-datepicker #adate></mat-datepicker>
+            </mat-form-field>
+        </div>            
+    </div>    
+    <div class="form-row align-items-right">
+        <div class="form-group">   
+            <button type="button" class="btn-info btn pull-right" (click)="getData()" i18n>Search</button>
+        </div>
+    </div>
+   
+    <p *ngIf="!products" i18n><em>Search results will load here after you press "Search" Button</em></p>
+
+    <div class="text-center">
+      <p class="lead" *ngIf="loading">Searching...</p>
+    </div>
+    <div class="alert alert-danger" *ngIf="error">
+      <h3>An error occured</h3>
+      <p>{{error}}</p>
+    </div>   
+    <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products">
+      <thead>
+        <tr>
+          <th i18n>Airline</th>
+          <th i18n>Outbound flight duration</th>
+          <th i18n>Inbound flight duration</th>
+          <th i18n>Total Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td><img src="{{ product.AirlineLogoAddress }}" alt="{{ product.AirlineName }}"> {{ product.AirlineName }}</td>
+          <td>{{ product.OutboundFlightsDuration }}</td>
+          <td>{{ product.InboundFlightsDuration }}</td>
+          <td>{{product.TotalAmount | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
