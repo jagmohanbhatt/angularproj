@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Itinerary } from '../model/itinerary.model';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { IItinerary } from 'src/app/operation/itinerary';
 import {map, catchError} from 'rxjs/operators';
 

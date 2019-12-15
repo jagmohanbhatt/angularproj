@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AirlineDataService } from '../../shared/service/airline-data.service';
-import { IItinerary } from '../itinerary';
 import { Itinerary } from 'src/app/shared/model/itinerary.model';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 
