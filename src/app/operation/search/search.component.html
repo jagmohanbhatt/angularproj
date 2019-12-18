@@ -1,18 +1,17 @@
 <div class="jumbotron">
-       
+      
     <h1 class="display-4" i18n>Domestic and International Flights</h1>
     <p class="lead" i18n>Search your flights here!</p>
     <hr class="my-4">
-  
     <div class="form-row">
         <div class="form-group col-md-3">
             <label for="labelDepartureCode" i18n>Departure Airport Code</label>
-            <input type="text" class="form-control" required minlength="3" maxlength="3" [(ngModel)]="departureCode">
-                    
+            <input type="text" class="form-control" required minlength="3" maxlength="3" [(ngModel)]="departureCode" (ngModelChange)="departureCode =$event.toUpperCase()">
+            
         </div>
         <div class="form-group col-md-3">
             <label for="labelArrivalCode" i18n>Arrival Airport Code</label>
-            <input type="text" class="form-control"  required minlength="3"  [(ngModel)]="arrivalCode">
+            <input type="text" class="form-control"  required minlength="3" maxlength="3"  [(ngModel)]="arrivalCode" (ngModelChange)="arrivalCode =$event.toUpperCase()">
         </div>
         <div class="form-group col-md-3">
             <label for="labelDepartureDate" i18n>Departure Date</label>
@@ -35,21 +34,53 @@
         </div>            
     </div>    
     <div class="form-row align-items-right">
-        <div class="form-group">   
-            <button type="button" class="btn-info btn pull-right" (click)="getData()" i18n>Search</button>
-        </div>
+      <div class="form-group col-md-12">
+        <button type="button" id="searchFlight" class="btn btn-primary float-right" (click)="getData()" i18n>Search</button>
     </div>
-   
-    <p *ngIf="!products" i18n><em>Search results will load here after you press "Search" Button</em></p>
+    </div>
+
+    <br/>
+    <p *ngIf="!flights" i18n><em>Search results will load here after you press "Search" Button</em></p>
 
     <div class="text-center">
       <p class="lead" *ngIf="loading">Searching...</p>
     </div>
+
     <div class="alert alert-danger" *ngIf="error">
       <h3>An error occured</h3>
       <p>{{error}}</p>
     </div>   
-    <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="products">
+
+    <div class="alert alert-danger" *ngIf="!flights && searched">
+      <h3>No data found</h3>
+      <p>{{error}}</p>
+    </div>   
+    
+    <div *ngIf="flights">
+      <div class="card">
+        <div class="card-body">
+          <h4>Dynamic Filter</h4>
+          <hr>
+          <div class="form-row">
+            <div class="form-group col-sm-3">
+                <label i18n>Airline Name</label>
+                <input class="form-control" type="text" [(ngModel)]="airlineNameFilter">
+            </div>
+            <div class="form-group col-sm-3">
+              <label i18n>Minimum Amount</label>
+              <input class="form-control" type="text" [(ngModel)]="airlineMinAmountFilter">
+            </div>
+            <div class="form-group col-sm-3">
+              <label i18n>Maximum Amount</label>
+              <input class="form-control" type="text" [(ngModel)]="airlineMaxAmountFilter">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flightData">
+    <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="flights">
       <thead>
         <tr>
           <th i18n>Airline</th>
@@ -59,12 +90,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products">
-          <td><img src="{{ product.AirlineLogoAddress }}" alt="{{ product.AirlineName }}"> {{ product.AirlineName }}</td>
-          <td>{{ product.OutboundFlightsDuration }}</td>
-          <td>{{ product.InboundFlightsDuration }}</td>
-          <td>{{product.TotalAmount | currency }}</td>
+        <tr *ngFor="let flight of flights | searchFilter:airlineNameFilter:airlineMinAmountFilter:airlineMaxAmountFilter">
+          <td><img src="{{ flight.AirlineLogoAddress }}" alt="{{ flight.AirlineName }}"> {{ flight.AirlineName }}</td>
+          <td>{{ flight.OutboundFlightsDuration }}</td>
+          <td>{{ flight.InboundFlightsDuration }}</td>
+          <td>{{ flight.TotalAmount | currency }}</td>
         </tr>
       </tbody>
     </table>
+  </div>
   </div>

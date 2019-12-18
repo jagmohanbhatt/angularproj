@@ -5,10 +5,12 @@ import { CommonModule } from '@angular/common';
 import { SearchComponent } from './search/search.component';
 import { MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SearchFilter } from './search/searchfilter.pipe';
 
 @NgModule({
     declarations: [
-        SearchComponent
+        SearchComponent,
+        SearchFilter
     ],
     imports: [
         RouterModule,

@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AirlineDataService } from '../../shared/service/airline-data.service';
 import { Itinerary } from 'src/app/shared/model/itinerary.model';
 import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import * as moment from 'moment'; // add this 1 of 4
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -10,16 +12,24 @@ import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 })
 
 export class SearchComponent implements OnInit {
-  public products: Itinerary[];
+  public flights: Itinerary[];
+  private filteredData: Itinerary[];
   private loading = false;
-  public error: any;
+  private searched = false;
+  private error: any;
+  private isCollapsed = false;
 
-  public departureCode: string;
-  public arrivalCode: string;
-  public departureDate: string;
-  public arrivalDate: string;
+  private departureCode: string;
+  private arrivalCode: string;
+  private departureDate: string;
+  private arrivalDate: string;
 
-  constructor(private apiService: AirlineDataService) { }
+  private airlineNameFilter: string;
+  private airlineMinAmountFilter: string;
+  private airlineMaxAmountFilter: string;
+
+  constructor(private apiService: AirlineDataService) {
+     }
 
   ngOnInit() {
   }
@@ -28,12 +38,22 @@ export class SearchComponent implements OnInit {
     this.loading = true;
     this.apiService.searchFlight(this.departureCode,
       this.arrivalCode,
-      this.departureDate,
-      this.arrivalDate).subscribe((data: Itinerary[]) => {
-      this.products = data;
+      moment(this.departureDate).format(),
+      moment(this.arrivalDate).format()).subscribe((data: Itinerary[]) => {
+      this.flights = data;
       this.loading = false;
+      this.searched = true;
     }, error => {
       this.error = error.message;
     });
+  }
+
+  filterData() {
+    if (this.airlineNameFilter) {
+      this.filteredData = this.flights;
+      this.filteredData = this.flights.filter(d => d.AirlineName.includes(this.airlineNameFilter));
+    } else {
+      this.filterData = null;
+    }
   }
 }

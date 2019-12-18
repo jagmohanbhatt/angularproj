@@ -11,6 +11,7 @@ import {map, catchError} from 'rxjs/operators';
 export class AirlineDataService {
 
   private SERVER_URL = 'http://nmflightapi.azurewebsites.net/api/flight';
+  results: Itinerary[];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,17 +27,6 @@ export class AirlineDataService {
       // tslint:disable-next-line: no-shadowed-variable
       map(flights => flights.map(flights => new Itinerary().deserialize(flights)))
     );
-  }
-
-  public get() {
-    return this.httpClient.get<IItinerary[]>(this.SERVER_URL, {
-      params: {
-        DepartureAirportCode: 'a',
-        ArrivalAirportCode: 'a',
-        DepartureDate: 'd',
-        ReturnDate: 'd'
-      }
-    });
   }
 }
 
